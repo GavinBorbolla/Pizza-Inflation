@@ -69,24 +69,32 @@ int main(){
         scanf("%f", &slices2);
         
 
-        float value1 = pizzaValue(size1, price1);
-        float value2 = pizzaValue(size2, price2);
+        float firstPizzaVal = pizzaValue(size1, price1);
+        float secondPizzaVal = pizzaValue(size2, price2);
 
         printf("\n");
 
-        printf("The value of the first pizza is: $%.2f per square inch\n", value1);
-        printf("The value of the second pizza is: $%.2f per square inch\n", value2);
+        printf("The value of the first pizza is: $%.2f per square inch\n", firstPizzaVal);
+        printf("The value of the second pizza is: $%.2f per square inch\n", secondPizzaVal);
         printf("The price per slice of the first pizza is: $%.2f\n", pricePerSlice(price1, slices1));
         printf("The price per slice of the second pizza is: $%.2f\n", pricePerSlice(price2, slices2));
 
-        if (value1 < value2){
+        printf("\n");
 
+        if (firstPizzaVal < secondPizzaVal){
+
+            int percentFirstBetter = (int)(((secondPizzaVal - firstPizzaVal) / secondPizzaVal) * 100);
+            
             printf("The first pizza is a better deal!\n");
+            printf("The first pizza is %d%% cheaper!\n", percentFirstBetter);
 
         }
-        else if (value2 < value1){
+        else if (secondPizzaVal < firstPizzaVal){
+
+            int percentSecondBetter = (int)(((firstPizzaVal - secondPizzaVal) / firstPizzaVal) * 100);
 
             printf("The second pizza is a better deal!\n");
+            printf("The second pizza is %d%% cheaper!\n", percentSecondBetter);
 
         }
         else{
